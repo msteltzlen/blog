@@ -1,0 +1,26 @@
+<li class="list-group-item col-xs-offset-1 col-xs-10 post_element"
+	[ngClass]="{'list-group-item-success' : PostLoveIts > 0 ,
+				'list-group-item-warning' : PostLoveIts === 0 ,
+				'list-group-item-danger' : PostLoveIts < 0  
+				}">
+
+	<h3> {{ PostTitle }} 
+		<div class="post_date"> {{ PostDate | date:'short'}} </div>
+	</h3>
+
+	{{ PostContent }}
+
+	<div> 
+		<button class="btn btn-success bouton" (click)="onJaime()"> J'aime </button>
+		<button class="btn btn-danger bouton" (click)="onJaimePas()"> Je n'aime pas</button>
+
+		<div class="post_smiley"> 
+			<i class="far fa-frown-open" *ngIf="getLoveIts() < 0"></i>
+			<i class="far fa-meh-blank" *ngIf="getLoveIts() == 0"></i>
+			<i class="far fa-smile-wink" *ngIf="getLoveIts() > 0"></i>
+		</div>
+
+		<div class="post_likes"> score : {{ getLoveIts() }} </div>
+
+	</div>
+</li>

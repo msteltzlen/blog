@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Bienvenue dans {{ title }}!
+  </h1>
+</div>
+
+<h3 style="margin-left:20px"> Posts récents: </h3>
+
+<ul class="list-group">
+
+  <app-post-list *ngFor="let post of posts"
+            [PostTitle] = post.title
+            [PostContent] = post.content
+            [PostLoveIts] = post.loveIts
+            [PostDate] = post.created_at> 
+  </app-post-list>
+
+</ul>
